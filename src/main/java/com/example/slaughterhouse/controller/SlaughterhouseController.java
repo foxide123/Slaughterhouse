@@ -89,7 +89,7 @@ public class SlaughterhouseController {
 
     @GetMapping("/animals/date/{date}")
     public ResponseEntity<Object> getAnimalsByDate(@PathVariable
-                                                       @DateTimeFormat(pattern="yyyy.MM.dd")
+                                                       @DateTimeFormat(pattern="yyyy-MM-dd")
                                                                Date date)
     {
         try{

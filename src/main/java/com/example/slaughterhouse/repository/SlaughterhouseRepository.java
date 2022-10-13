@@ -34,6 +34,16 @@ public class SlaughterhouseRepository {
 
     public Optional<List<Animal>> getAnimalsByDate(Date date)
     {
+        List<Animal> animal = new ArrayList<>();
+        for(Animal i: animalMap.values())
+        {
+            if(i.getDate().equals(date))
+            {
+                animal.add(i);
+            }
+        }
+        return Optional.ofNullable(animal);
+        /*
         List<Animal> animals = animalMap.entrySet().stream()
                 .filter(a ->
                         !a.getValue().getDate().after(date) &&
@@ -42,6 +52,8 @@ public class SlaughterhouseRepository {
                 .map(Map.Entry::getValue)
                 .collect(Collectors.toList());
         return Optional.ofNullable(animals);
+
+         */
     }
 
     public Optional<List<Animal>> getAnimalsByOrigin(String origin)
